@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NETRA32 — 3D Simulation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+
+<!-- Three.js is loaded as an ES module straight from a CDN, so no local -->
+<!-- node_modules / build step is required to run this frontend. -->
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+</head>
+<body>
+<div class="app">
+
+  <header>
+    <div class="brand">
+      <h1>NETRA<span>32</span></h1>
+      <div class="tag">360° Multi-People Proximity Alert — 3D Simulation</div>
+    </div>
+    <div class="status-strip">
+      <div><span class="dot offline" id="wsDot"></span><span id="wsLabel">Connecting to backend…</span></div>
+      <div>4×60GHz RADAR MODEL</div>
+      <div>ESP32-P4 FUSION MODEL</div>
+    </div>
+  </header>
+
+  <div class="layout">
+
+    <!-- LEFT: TELEMETRY + SCENARIOS -->
+    <div class="sidebar">
+      <div class="panel">
+        <h2>System Telemetry</h2>
+        <div class="row"><span class="label">Backend Tick Rate</span><span class="val" id="telHz">— Hz</span></div>
+        <div class="row"><span class="label">Active Targets</span><span class="val" id="telTargets">0</span></div>
+        <div class="row"><span class="label">Closest Target</span><span class="val" id="telClosest">— m</span></div>
+        <div class="row"><span class="label">Detection Range</span><span class="val">0.5 m – 6.0 m</span></div>
+        <div class="row"><span class="label">Server Uptime</span><span class="val" id="telUptime">00:00:00</span></div>
+        <div class="row"><span class="label">Active Scenario</span><span class="val" id="telScenario">—</span></div>
+      </div>
+
+      <div class="panel">
+        <h2>Zone Distribution</h2>
+        <div class="zone-row">
+          <div class="zone-chip green"><div class="n" id="cntGreen">0</div><div class="l">Safe</div></div>
+          <div class="zone-chip yellow"><div class="n" id="cntYellow">0</div><div class="l">Warn</div></div>
+          <div class="zone-chip red"><div class="n" id="cntRed">0</div><div class="l">Critical</div></div>
+        </div>
+        <div class="row" style="margin-top:6px; font-size:0.65rem; border:none;">Green &gt; 6m &nbsp;·&nbsp; Yellow 2–6m &nbsp;·&nbsp; Red &lt; 2m</div>
+      </div>
+
+      <div class="panel">
+        <h2>Scenario Control</h2>
+        <div class="btn-grid">
+          <button data-scenario="auto" id="btnAuto">▶ Auto Cycle (default)</button>
+          <button data-scenario="idle">Idle — Perimeter Clear</button>
+          <button data-scenario="walk_past">Walk-By Pedestrian</button>
+          <button data-scenario="rapid_approach">⚡ Rapid Approach</button>
+          <button data-scenario="crouch_intruder">Low-Profile / Crouch</button>
+          <button data-scenario="multi_target">Multi-Target Group</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CENTER: 3D VIEWPORT -->
+    <div class="viewport-wrap">
+      <div id="viewport"></div>
+      <div class="viewport-hud">
+        <b>3D RADAR VIEWPORT</b><br>
+        Drag to rotate · Scroll to zoom · Right-drag to pan<br>
+        Dome radius = 6m detection field
+      </div>
+      <div class="viewport-hud-right" id="viewportRight">
+        X / Z: floor plane<br>Y: height (m)
+      </div>
+      <div class="scenario-caption">
+        <span class="tag" id="capTag">STANDBY</span><span class="txt" id="capTxt">Connecting to simulation backend…</span>
+      </div>
+    </div>
+
+    <!-- RIGHT: HAPTIC + LOG -->
+    <div class="sidebar">
+      <div class="panel">
+        <h2>Haptic Status</h2>
+        <div class="state-banner">
+          <div class="led" id="stateLed"></div>
+          <div class="txt" id="stateTxt">Idle — No Targets</div>
+        </div>
+        <div class="pulse-track" id="pulseTrack"></div>
+        <div class="pattern-desc" id="patternDesc">Wearer's personal space is clear. No haptic output.</div>
+        <div class="toggle-row">
+          <span>Audio (motor feel)</span>
+          <div class="switch" id="audioToggle"></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>Alert Patterns</h2>
+        <ul class="legend">
+          <li><span>1 Person Nearby</span><b class="glyph">• —</b></li>
+          <li><span>2 People Nearby</span><b class="glyph">•• —</b></li>
+          <li><span>3+ People Nearby</span><b class="glyph">••• —</b></li>
+          <li><span>Rapid Approach</span><b class="glyph">••••</b></li>
+          <li><span>Continuous Proximity</span><b class="glyph">———</b></li>
+        </ul>
+      </div>
+
+      <div class="panel">
+        <h2>Event Log</h2>
+        <div class="log-panel" id="logPanel"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>Silent. Smart. Aware. — <span>Awareness is Protection.</span></footer>
+</div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
