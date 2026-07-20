@@ -158,7 +158,7 @@ Different vibration patterns indicate proximity level and approaching threats.
 - **🤖 Embedded AI Processing**
 On-device inference for intelligent detection without cloud processing.
 
--**🔒 Privacy First**
+- **🔒 Privacy First**
 No cameras, microphones, or internet connection required.
 
 - **📡 Offline Operation**
@@ -194,13 +194,13 @@ This modular design simplifies future upgrades and maintenance while maintaining
 - Form Factor: Compact Wearable
 
 ## 📱Potential Applications
--Personal safety and security
--Industrial worker protection
--Smart workplace monitoring
--Healthcare and assisted living
--Defense and tactical awareness
--Indoor navigation assistance
--Research in embedded AI and wearable systems
+- Personal safety and security
+- Industrial worker protection
+- Smart workplace monitoring
+- Healthcare and assisted living
+- Defense and tactical awareness
+- Indoor navigation assistance
+- Research in embedded AI and wearable systems
 
 
 ## SIMULATION
