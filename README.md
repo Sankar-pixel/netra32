@@ -190,3 +190,7 @@ Form Factor: Compact Wearable
 -Indoor navigation assistance
 -Research in embedded AI and wearable systems
 
+
+## SIMULATION
+<img width="1872" height="902" alt="Screenshot 2026-07-20 141315" src="https://github.com/user-attachments/assets/b175963e-5d76-4d27-ba07-de6c136ccd47" />
+
