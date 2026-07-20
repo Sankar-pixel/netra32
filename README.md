@@ -134,34 +134,45 @@ const CONFIG = {
 };
 ```
 ## Hardware structure
+
 <img width="1600" height="893" alt="netruh" src="https://github.com/user-attachments/assets/3e59b7bc-3aea-4948-bb64-221c2e86ed2a" />
 
 
 
 ## Idea
+
 <img width="1536" height="1024" alt="netru" src="https://github.com/user-attachments/assets/ad24a419-b459-4b40-95ea-032069858e03" />
 
-🚀 Features
-🔄 360° Omnidirectional Detection
+
+## 🚀 Features
+
+**🔄 360° Omnidirectional Detection**
 Full surrounding coverage for real-time proximity awareness.
-👥 Multi-Person Detection
+
+**👥 Multi-Person Detection**
 Detects and tracks multiple people simultaneously.
-📳 Silent Haptic Alerts
+
+**📳 Silent Haptic Alerts**
 Different vibration patterns indicate proximity level and approaching threats.
-🤖 Embedded AI Processing
+
+**🤖 Embedded AI Processing**
 On-device inference for intelligent detection without cloud processing.
-🔒 Privacy First
+
+**🔒 Privacy First**
 No cameras, microphones, or internet connection required.
-📡 Offline Operation
+
+**📡 Offline Operation**
 Fully functional without Wi-Fi or cloud services.
-🔋 Long Battery Life
+
+**🔋 Long Battery Life**
 Designed for extended operation with efficient power management.
-🎯 Compact & Concealable
+
+**🎯 Compact & Concealable**
 Lightweight design suitable for everyday wear.
 
-🏗 Hardware Architecture
+## 🏗 Hardware Architecture
 
-NETRA32 consists of a layered modular architecture:
+**NETRA32 consists of a layered modular architecture:**
 
 Outer Protective Shell
 360° Radar Sensor Layer
@@ -172,7 +183,8 @@ Base Support Structure
 
 This modular design simplifies future upgrades and maintenance while maintaining a compact form factor.
 
-⚙️ Key Specifications
+## ⚙️ Key Specifications
+
 Processor: ESP32 Series Microcontroller
 Detection: 360° Multi-Person Proximity
 Alert Method: Haptic Vibration Feedback
@@ -181,7 +193,7 @@ Connectivity: Offline Operation
 AI Processing: On-device Embedded Intelligence
 Form Factor: Compact Wearable
 
-📱Potential Applications
+## 📱Potential Applications
 -Personal safety and security
 -Industrial worker protection
 -Smart workplace monitoring
